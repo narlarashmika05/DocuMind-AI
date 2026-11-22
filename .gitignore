@@ -26,6 +26,9 @@ backend/storage/
 *.pt
 *.safetensors
 
+# ---------- AI assistant settings (local only) ----------
+.claude/
+
 # ---------- OS / editor ----------
 .DS_Store
 Thumbs.db
