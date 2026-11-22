@@ -1,0 +1,33 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---------- Secrets ----------
+# Real environment files hold passwords and API keys. Only *.env.example is committed.
+.env
+.env.*
+!.env.example
+
+# ---------- Node / frontend ----------
+node_modules/
+frontend/dist/
+
+# ---------- Application data ----------
+# Uploaded PDFs, extracted images and the ChromaDB index are user data, not source code.
+backend/storage/
+
+# ---------- ML model files / caches ----------
+.cache/
+*.pt
+*.safetensors
+
+# ---------- OS / editor ----------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

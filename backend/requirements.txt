@@ -1,0 +1,47 @@
+# Module 1 dependencies (Python 3.11). Versions are pinned so every install is identical.
+# Later modules append their packages below their own heading.
+
+# ---------- Web framework ----------
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# ---------- Database ----------
+SQLAlchemy==2.0.36
+PyMySQL==1.1.1
+# Required by PyMySQL for MySQL 8's default "caching_sha2_password" authentication
+cryptography==44.0.0
+
+# ---------- Module 2: auth, migrations, uploads ----------
+alembic==1.14.0
+pwdlib[argon2]==0.2.1
+PyJWT==2.10.1
+python-multipart==0.0.20
+email-validator==2.2.0
+
+# ---------- Module 3: document processing ----------
+PyMuPDF==1.25.1
+pdfplumber==0.11.4
+pytesseract==0.3.13          # also needs the Tesseract program installed (see docs)
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+
+# ---------- Modules 4-8: embeddings, vector search, RAG, verification ----------
+# torch from PyPI on Windows is the CPU build (~200 MB)
+torch==2.5.1
+transformers==4.46.3
+sentence-transformers==3.3.1
+# chromadb 0.5.x needs tokenizers<=0.20.3, which is why transformers stays on 4.46
+chromadb==0.5.23
+rank-bm25==0.2.2
+llama-index-core==0.12.5
+google-genai==3.6.1
+
+# ---------- Module 9: evaluation ----------
+matplotlib==3.9.3
+PyYAML==6.0.2
+
+# ---------- Testing ----------
+pytest==8.3.4
+httpx==0.27.2

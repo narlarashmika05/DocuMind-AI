@@ -1,0 +1,7 @@
+# Store text files with LF line endings in Git. Docker containers run Linux, where
+# CRLF line endings break shell scripts.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary

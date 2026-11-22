@@ -1,0 +1,31 @@
+{"id": "C01", "document": "photosynthesis.pdf", "page": 1, "label": "supported", "claim": "Chlorophyll mainly absorbs red and blue light."}
+{"id": "C02", "document": "photosynthesis.pdf", "page": 1, "label": "contradicted", "claim": "Chlorophyll mainly absorbs green light."}
+{"id": "C03", "document": "photosynthesis.pdf", "page": 1, "label": "supported", "claim": "The light-dependent reactions store energy in ATP and NADPH."}
+{"id": "C04", "document": "photosynthesis.pdf", "page": 1, "label": "unsupported", "claim": "Photosynthesis was first described by Jan Ingenhousz in 1779."}
+{"id": "C05", "document": "photosynthesis.pdf", "page": 2, "label": "supported", "claim": "RuBisCO attaches carbon dioxide to RuBP."}
+{"id": "C06", "document": "photosynthesis.pdf", "page": 2, "label": "contradicted", "claim": "CAM plants open their stomata during the hot day."}
+{"id": "C07", "document": "photosynthesis.pdf", "page": 2, "label": "unsupported", "claim": "RuBisCO needs magnesium ions to work."}
+{"id": "C08", "document": "transformer_review.pdf", "page": 2, "label": "supported", "claim": "The Transformer uses eight attention heads."}
+{"id": "C09", "document": "transformer_review.pdf", "page": 2, "label": "contradicted", "claim": "Each attention head works in a 128-dimensional space."}
+{"id": "C10", "document": "transformer_review.pdf", "page": 3, "label": "supported", "claim": "The big model was trained for three and a half days on eight P100 GPUs."}
+{"id": "C11", "document": "transformer_review.pdf", "page": 3, "label": "contradicted", "claim": "The big Transformer reached 31.2 BLEU on English-to-German translation."}
+{"id": "C12", "document": "transformer_review.pdf", "page": 3, "label": "unsupported", "claim": "The authors released their code in the Tensor2Tensor library."}
+{"id": "C13", "document": "transformer_review.pdf", "page": 3, "label": "supported", "claim": "Label smoothing of 0.1 was used during training."}
+{"id": "C14", "document": "indian_monsoon.pdf", "page": 1, "label": "supported", "claim": "The southwest monsoon provides roughly three quarters of India's yearly rain."}
+{"id": "C15", "document": "indian_monsoon.pdf", "page": 1, "label": "contradicted", "claim": "The monsoon usually reaches Kerala in early August."}
+{"id": "C16", "document": "indian_monsoon.pdf", "page": 1, "label": "unsupported", "claim": "The 2019 monsoon was the wettest in 25 years."}
+{"id": "C17", "document": "indian_monsoon.pdf", "page": 3, "label": "supported", "claim": "Mawsynram receives more rain than Mumbai."}
+{"id": "C18", "document": "indian_monsoon.pdf", "page": 3, "label": "contradicted", "claim": "El Nino usually strengthens the Indian monsoon."}
+{"id": "C19", "document": "indian_monsoon.pdf", "page": 2, "label": "supported", "claim": "The land heats up faster than the ocean in summer."}
+{"id": "C20", "document": "vaccines.pdf", "page": 1, "label": "supported", "claim": "Edward Jenner used cowpox to protect people against smallpox."}
+{"id": "C21", "document": "vaccines.pdf", "page": 1, "label": "contradicted", "claim": "Smallpox was declared eradicated in 1990."}
+{"id": "C22", "document": "vaccines.pdf", "page": 2, "label": "supported", "claim": "mRNA vaccines cannot change a person's DNA."}
+{"id": "C23", "document": "vaccines.pdf", "page": 2, "label": "unsupported", "claim": "mRNA vaccines must be stored at minus 70 degrees Celsius."}
+{"id": "C24", "document": "vaccines.pdf", "page": 3, "label": "supported", "claim": "About 95 percent of people need to be immune to stop measles spreading."}
+{"id": "C25", "document": "vaccines.pdf", "page": 3, "label": "unsupported", "claim": "The first polio vaccine was developed by Jonas Salk."}
+{"id": "C26", "document": "french_revolution.pdf", "page": 2, "label": "supported", "claim": "The Bastille was stormed on 14 July 1789."}
+{"id": "C27", "document": "french_revolution.pdf", "page": 2, "label": "contradicted", "claim": "Louis XVI was executed in 1795."}
+{"id": "C28", "document": "french_revolution.pdf", "page": 2, "label": "unsupported", "claim": "Marie Antoinette was executed in October 1793."}
+{"id": "C29", "document": "french_revolution.pdf", "page": 3, "label": "supported", "claim": "Napoleon seized power in a coup in November 1799."}
+{"id": "C30", "document": "french_revolution.pdf", "page": 1, "label": "contradicted", "claim": "Before 1789 the Estates-General had last met in 1700."}
+{"id": "C31", "document": "french_revolution.pdf", "page": 1, "label": "unsupported", "claim": "Louis XVI was 34 years old when the Revolution began."}

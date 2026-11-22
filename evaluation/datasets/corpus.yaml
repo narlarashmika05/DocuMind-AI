@@ -1,0 +1,130 @@
+# Reproducible evaluation corpus. build_corpus.py turns this into PDFs.
+# Facts are written in our own words from well-known sources; numbers are rounded where noted.
+documents:
+  - file: photosynthesis.pdf
+    title: "Photosynthesis: Study Notes"
+    pages:
+      - paragraphs:
+          - "Photosynthesis is the process by which green plants, algae and some bacteria convert light energy into chemical energy. The overall reaction can be summarised as six molecules of carbon dioxide plus six molecules of water, using light energy, producing one molecule of glucose and six molecules of oxygen."
+          - "In plants, photosynthesis takes place inside chloroplasts. The pigments chlorophyll a and chlorophyll b absorb mainly red and blue light and reflect green light, which is why leaves look green. Accessory pigments such as carotenoids capture additional wavelengths and protect the cell from excess light."
+          - "The process has two stages. The light-dependent reactions happen in the thylakoid membranes. There, light energy splits water molecules in a step called photolysis, which releases oxygen gas as a by-product. The energy captured is stored in two carrier molecules, ATP and NADPH."
+          - "The second stage, the light-independent reactions or Calvin cycle, takes place in the stroma, the fluid that surrounds the thylakoids. It uses the ATP and NADPH from the first stage to build sugars from carbon dioxide."
+      - paragraphs:
+          - "In the Calvin cycle, the enzyme RuBisCO attaches carbon dioxide to a five-carbon sugar called RuBP. The unstable product immediately splits into two molecules of a three-carbon compound, 3-phosphoglycerate (3-PGA). ATP and NADPH then reduce 3-PGA to glyceraldehyde-3-phosphate (G3P). For every three molecules of carbon dioxide fixed, one G3P molecule leaves the cycle to make glucose and other sugars, while the rest is used to regenerate RuBP."
+          - "RuBisCO is often described as the most abundant protein on Earth. It is also inefficient: it sometimes binds oxygen instead of carbon dioxide, a wasteful process called photorespiration that is worse in hot, dry conditions."
+          - "C4 plants such as maize and sugarcane reduce photorespiration by first fixing carbon dioxide with the enzyme PEP carboxylase in mesophyll cells and then releasing it around RuBisCO in bundle-sheath cells. This is a spatial separation of the two steps. CAM plants such as pineapple and cacti instead separate the steps in time: they open their stomata at night to take in carbon dioxide and keep them closed during the hot day to save water."
+        table:
+          caption: "Table 1: Comparison of carbon-fixation pathways."
+          rows:
+            - ["Pathway", "First stable product", "Example plants", "Stomata open"]
+            - ["C3", "3-PGA (3-carbon)", "Wheat, rice", "Day"]
+            - ["C4", "Oxaloacetate (4-carbon)", "Maize, sugarcane", "Day"]
+            - ["CAM", "Oxaloacetate (4-carbon)", "Pineapple, cacti", "Night"]
+      - paragraphs:
+          - "The rate of photosynthesis depends on light intensity, carbon dioxide concentration and temperature. According to Blackman's law of limiting factors, proposed in 1905, the rate is controlled by whichever factor is in shortest supply."
+          - "As light intensity increases, the rate of photosynthesis rises until another factor, usually carbon dioxide concentration or temperature, becomes limiting, and the curve levels off. Commercial greenhouse growers often raise carbon dioxide levels to about 1000 parts per million to increase crop yield when light and temperature are adequate."
+          - "Temperature affects the enzymes of the Calvin cycle. Many temperate plants photosynthesise best between about 25 and 35 degrees Celsius; above roughly 40 degrees Celsius the enzymes begin to denature and the rate falls sharply."
+        chart:
+          caption: "Figure 1: Rate of oxygen production rises with light intensity and levels off above about 600 micromoles of photons per square metre per second."
+          values: [10, 32, 51, 66, 74, 76, 77]
+
+  - file: transformer_review.pdf
+    title: "Attention-Based Sequence Models: A Short Review"
+    pages:
+      - paragraphs:
+          - "Abstract. This review summarises the Transformer architecture introduced by Vaswani and colleagues in 2017. The Transformer replaced the recurrent and convolutional layers used in earlier sequence-to-sequence models with attention mechanisms alone."
+          - "Introduction. Recurrent neural networks process tokens one after another, so the computation for a sentence cannot be parallelised across positions, and information from distant words must pass through many steps. This makes training slow and makes long-range dependencies hard to learn because of vanishing gradients."
+          - "Self-attention lets every position in a sequence attend directly to every other position in a single step. Because all positions are processed at the same time, the Transformer can be trained much faster on modern hardware such as GPUs."
+      - paragraphs:
+          - "Architecture. The Transformer follows an encoder-decoder design. Both the encoder and the decoder are stacks of six identical layers. The base model uses a model dimension of 512."
+          - "The core operation is scaled dot-product attention: the softmax of the dot products of queries and keys, divided by the square root of the key dimension, is used to weight the values. The scaling factor is needed because for large key dimensions the dot products grow large, pushing the softmax into regions with extremely small gradients."
+          - "Instead of a single attention function, the model uses multi-head attention with eight heads. Each head works in a lower-dimensional space of 64 dimensions, which lets the model attend to information from different representation subspaces at the same time. Each layer also contains a position-wise feed-forward network with an inner dimension of 2048."
+          - "Because the model contains no recurrence, it has no built-in notion of word order. Positional encodings based on sine and cosine functions of different frequencies are therefore added to the input embeddings. The decoder uses masked self-attention so that a position cannot attend to future positions."
+      - paragraphs:
+          - "Results. On the WMT 2014 translation benchmarks the Transformer achieved new state-of-the-art results at a fraction of the training cost of previous models."
+          - "Training used the Adam optimizer with beta1 = 0.9 and beta2 = 0.98, a learning rate that increased linearly for the first 4000 warm-up steps and then decreased, dropout of 0.1 and label smoothing of 0.1."
+        table:
+          caption: "Table 2: Translation quality (BLEU) and training cost."
+          rows:
+            - ["Model", "EN-DE BLEU", "EN-FR BLEU", "Training cost"]
+            - ["Transformer (base)", "27.3", "38.1", "12 hours on 8 P100 GPUs"]
+            - ["Transformer (big)", "28.4", "41.8", "3.5 days on 8 P100 GPUs"]
+        references:
+          - "[1] Bahdanau, D., Cho, K. and Bengio, Y. Neural machine translation by jointly learning to align and translate. ICLR, 2015."
+          - "[2] Hochreiter, S. and Schmidhuber, J. Long short-term memory. Neural Computation, 1997."
+          - "[3] Vaswani, A. et al. Attention is all you need. NeurIPS, 2017."
+
+  - file: indian_monsoon.pdf
+    title: "The Indian Monsoon"
+    pages:
+      - paragraphs:
+          - "The southwest monsoon brings about 75 percent of India's annual rainfall during the four months from June to September. Its arrival is eagerly awaited because most of the country's farming depends on it."
+          - "The monsoon normally arrives on the coast of Kerala around the first of June and then advances northwards, covering the whole country by about the second week of July. It begins to withdraw from north-western India in September."
+          - "From October to December, the retreating winds, known as the northeast monsoon, pick up moisture over the Bay of Bengal and bring most of the annual rain to the coast of Tamil Nadu."
+      - paragraphs:
+          - "The main cause of the monsoon is the differential heating of land and sea. In summer the land heats up much faster than the ocean, creating an area of low pressure over north-western India while pressure remains higher over the Indian Ocean. Moist winds therefore blow from the sea towards the land."
+          - "The northward shift of the Inter-Tropical Convergence Zone in summer and the heating of the Tibetan Plateau strengthen this circulation. The Himalayas block cold northern winds and force the moist monsoon winds to rise and release their rain."
+          - "When the moist winds meet the Western Ghats, they rise and cool, causing heavy orographic rainfall on the windward western slopes. The leeward eastern side receives much less rain; such a dry area is called a rain shadow region, and large parts of the interior Deccan plateau lie in it."
+      - paragraphs:
+          - "Rainfall varies enormously across India, from some of the wettest places on Earth in the north-east to deserts in Rajasthan. The values below are approximate long-term averages."
+          - "Year-to-year changes in the monsoon are linked to ocean conditions. El Nino, an unusual warming of the central and eastern Pacific Ocean, often weakens the Indian monsoon and is associated with drought years, while a positive Indian Ocean Dipole can strengthen it."
+          - "Kharif crops such as rice, cotton and maize are sown at the onset of the monsoon and harvested in autumn."
+        table:
+          caption: "Table 3: Approximate average annual rainfall."
+          rows:
+            - ["Place", "State", "Average annual rainfall (mm)"]
+            - ["Mawsynram", "Meghalaya", "11,870"]
+            - ["Cherrapunji", "Meghalaya", "11,000"]
+            - ["Mumbai", "Maharashtra", "2,200"]
+            - ["Delhi", "Delhi", "800"]
+            - ["Jaisalmer", "Rajasthan", "200"]
+
+  - file: vaccines.pdf
+    title: "How Vaccines Work"
+    pages:
+      - paragraphs:
+          - "A vaccine trains the adaptive immune system to recognise a pathogen without causing the disease. It contains an antigen: a weakened or killed form of the pathogen, a piece of it, or genetic instructions for making one of its proteins."
+          - "After vaccination, B cells produce antibodies that bind to the antigen, and T cells help coordinate the response and destroy infected cells. Crucially, long-lived memory B cells and memory T cells remain afterwards, so a later infection triggers a faster and stronger response."
+          - "The English physician Edward Jenner developed the first vaccine in 1796, using material from cowpox to protect people against smallpox. After a global vaccination campaign, the World Health Organization declared smallpox eradicated in 1980."
+      - paragraphs:
+          - "Vaccines differ in how they present the antigen to the immune system."
+          - "Messenger RNA (mRNA) vaccines deliver instructions that cells use to make a harmless piece of the pathogen's protein. The mRNA does not enter the cell nucleus and cannot change a person's DNA; it is broken down by the cell within a few days."
+          - "Many vaccines also contain an adjuvant, such as aluminium salts, a substance that strengthens the immune response to the antigen so that fewer or smaller doses are needed."
+        table:
+          caption: "Table 4: Main types of vaccines."
+          rows:
+            - ["Vaccine type", "How it works", "Example"]
+            - ["Live attenuated", "Weakened living pathogen", "MMR (measles, mumps, rubella)"]
+            - ["Inactivated", "Killed pathogen", "Inactivated polio vaccine (IPV)"]
+            - ["Subunit", "Selected protein pieces", "Hepatitis B vaccine"]
+            - ["mRNA", "Instructions to make an antigen protein", "COVID-19 mRNA vaccines"]
+            - ["Toxoid", "Inactivated toxin", "Tetanus vaccine"]
+      - paragraphs:
+          - "Herd immunity occurs when enough people in a population are immune that chains of transmission break. It protects people who cannot be vaccinated, such as newborn babies and people with weakened immune systems."
+          - "The share of the population that must be immune is approximately one minus one divided by R0, where R0 is the basic reproduction number: the average number of people one infected person infects in a fully susceptible population."
+          - "Measles is extremely contagious, with an R0 of about 12 to 18, so roughly 92 to 95 percent of people need to be immune. For polio, with an R0 of about 5 to 7, the threshold is roughly 80 to 86 percent."
+          - "Protection from some vaccines fades over time, so booster doses are needed. For example, adults are advised to receive a tetanus booster every 10 years."
+
+  - file: french_revolution.pdf
+    title: "The French Revolution, 1789-1799"
+    pages:
+      - paragraphs:
+          - "By the late 1780s the French monarchy was nearly bankrupt. Costly wars, including French support for the American Revolution, had created enormous debts, while the tax burden fell mostly on the Third Estate, the common people. Poor harvests in 1788 sent the price of bread soaring."
+          - "Enlightenment writers such as Rousseau, Montesquieu and Voltaire had spread ideas about popular sovereignty, the separation of powers and individual rights, which encouraged people to question the absolute power of the king."
+          - "To solve the financial crisis, King Louis XVI summoned the Estates-General in May 1789, the first time it had met since 1614. On 17 June 1789 the representatives of the Third Estate declared themselves the National Assembly. Three days later, locked out of their meeting hall, they swore the Tennis Court Oath on 20 June 1789, promising not to separate until France had a constitution."
+      - paragraphs:
+          - "On 14 July 1789 crowds in Paris stormed the Bastille, a royal fortress and prison that symbolised the king's power. The date is now France's national holiday."
+          - "On 4 August 1789 the National Assembly abolished feudal privileges, and on 26 August 1789 it adopted the Declaration of the Rights of Man and of the Citizen, which proclaimed liberty, equality before the law and popular sovereignty. In October 1789 thousands of women marched on Versailles and forced the royal family to move to Paris."
+          - "The monarchy was abolished in September 1792 and France became a republic. King Louis XVI was executed on 21 January 1793. During the Reign of Terror of 1793 and 1794 the Committee of Public Safety, dominated by Maximilien Robespierre, had about 17,000 people officially executed. Robespierre himself was arrested and executed in July 1794."
+      - paragraphs:
+          - "After the Terror, a five-member executive called the Directory governed France from 1795 to 1799, but it was weak and unpopular. On 9 November 1799, the coup of 18 Brumaire, General Napoleon Bonaparte seized power and established the Consulate, which is usually taken as the end of the Revolution."
+          - "The Revolution ended absolute monarchy and the feudal system in France. It spread the ideas of popular sovereignty, citizenship and nationalism across Europe, and many of its legal reforms were later written into the Napoleonic Code of 1804."
+        table:
+          caption: "Table 5: Timeline of key events."
+          rows:
+            - ["Date", "Event"]
+            - ["May 1789", "Estates-General meets"]
+            - ["14 July 1789", "Storming of the Bastille"]
+            - ["26 August 1789", "Declaration of the Rights of Man and of the Citizen"]
+            - ["21 January 1793", "Execution of Louis XVI"]
+            - ["9 November 1799", "Napoleon's coup of 18 Brumaire"]

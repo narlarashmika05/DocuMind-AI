@@ -1,0 +1,61 @@
+# Full stack: MySQL + FastAPI backend + React/nginx frontend.
+#   1. Copy .env.docker.example to .env (in this folder) and fill in the secrets.
+#   2. docker compose up --build
+#   3. Open http://localhost:8080
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: documind
+      MYSQL_USER: documind_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    # No "ports:" - the database is reachable only by the backend, not from outside.
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT: production
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USER: documind_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DB: documind
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?set JWT_SECRET_KEY in .env}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+      OCR_LANGUAGES: eng+tel
+      CORS_ORIGINS: ${PUBLIC_URL:-http://localhost:8080}
+    volumes:
+      - storage:/app/storage   # uploads, extracted images, ChromaDB
+      - models:/models         # Hugging Face model cache (~2 GB, downloaded once)
+      - ./evaluation/results:/evaluation/results:ro   # shown on the Evaluation page
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: /api/v1
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  mysql-data:
+  storage:
+  models:

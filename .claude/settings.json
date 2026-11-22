@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd C:\\\\Users\\\\narla\\\\OneDrive\\\\Documents\\\\DocuMind-AI\\\\backend\\\\app\\\\services; foreach \\($d in 'embeddings','chunking','vectorstore','retrieval'\\) { New-Item -ItemType File \"$d\\\\__init__.py\" -Force | Out-Null }; \"ok\")",
+      "PowerShell(cd C:\\\\Users\\\\narla\\\\OneDrive\\\\Documents\\\\DocuMind-AI\\\\backend; $env:JWT_SECRET_KEY = \"temporary-key-only-for-generating-the-migration-0000\"; foreach \\($step in @\\('upgrade head','downgrade -1','upgrade head'\\)\\) { \"== alembic $step\"; Invoke-Expression \".\\\\.venv\\\\Scripts\\\\alembic.exe $step 2>&1\" | Select-String \"Running|ERROR|Error\" })",
+      "PowerShell(cd C:\\\\Users\\\\narla\\\\OneDrive\\\\Documents\\\\DocuMind-AI\\\\backend; $env:PYTHONIOENCODING = \"utf-8\"; .\\\\.venv\\\\Scripts\\\\python.exe \"C:\\\\Users\\\\narla\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-narla-OneDrive-Documents-DocuMind-AI\\\\12e63688-8f9b-4794-ad20-62d5eba783c3\\\\scratchpad\\\\real_models_check.py\" 2>&1 | Select-String \"top-1|reranker|Error|error\")"
+    ]
+  }
+}
